@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mapa con GeoJSON desde GitHub</title>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAC_dr3jH2YVYPqBibbiYmS4EWOPD1vItU&callback=initMap" async defer></script>
+</head>
+<body>
+  <div id="map" style="height: 500px;"></div>
+  <script>
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 39.470475, lng: -0.351776}, 
+        zoom: 13
+      });
+
+      var geojsonURL = 'https://raw.githubusercontent.com/calabres/prueba_tali/main/prueba_.geojson';
+
+      var geojsonLayer = new google.maps.Data();
+      geojsonLayer.loadGeoJson(geojsonURL);
+      geojsonLayer.setMap(map);
+
+      geojsonLayer.setStyle(function(feature) {
+        var population = feature.getProperty('poblacion');
+        var color = population > 9 ? 'red' : 'blue';
+
+        return {
+          fillColor: color,
+          strokeWeight: 1
+        };
+      });
+    }
+  </script>
+</body>
+</html>
