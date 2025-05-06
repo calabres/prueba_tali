@@ -21,7 +21,7 @@ graph TD
     G_60 --> I[Predicción Validada<br>Altura Hidrométrica<br>60 días]
 
     %% Convergencia hacia el objetivo final
-    H --> J[Cálculo del Calado Máximo<br>(OBJETIVO Principal)<br>Usando Altura Predicha<br>Profundidad y Margen Seguridad]
+    H --> J[Cálculo del Calado Máximo<br>OBJETIVO Principal<br>Usando Altura Predicha<br>Profundidad y Margen Seguridad]
     I --> J
 
     J --> K(Fin del Proyecto)
