@@ -14,8 +14,7 @@ graph TD
     F --> G2
     F --> G3
 
-    subgraph Estrategia de Predicción Final Cascada %% <-- LÍNEA 16: Asegúrate que solo esto está aquí
-        %% <-- LÍNEA 17: Asegúrate de que H[... comience en esta línea nueva
+    subgraph Estrategia de Predicción Final Cascada
         H[Inputs para Modelo Final:<br>Predicciones de Pilcomayo,<br>Yacyreta, Corrientes]
         G1 --> H
         G2 --> H
