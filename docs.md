@@ -1,6 +1,7 @@
 ```mermaid
 graph TD
-    A(Inicio Proyecto Río Paraná) --> B[Recolección de Datos<br>Alturas Hidrométricas<br>Caudales<br>Vientos, Temperaturas<br>Precipitaciones] %% Separé las líneas con <br> o nueva línea simple dentro del []
+    A(Inicio Proyecto Río Paraná) --> B[Recolección de Datos<br>Alturas Hidrométricas<br>Caudales<br>Vientos, Temperaturas<br>Precipitaciones]
+    %% Separé las líneas con <br> o nueva línea simple dentro del []
 
     subgraph Fase 1: Análisis y Preparación de Datos
         B --> C1[Análisis Exploratorio Inicial<br>(&#40;Correlaciones, Lags Fijos, etc.&#41;)]
