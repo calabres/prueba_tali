@@ -2,7 +2,8 @@
 graph TD
     A(Pronóstico a 60 días) -->
     B[Foco en Corrientes<br>- Análisis aguas arriba y su influencia en Corriente]
-    C[Afluentes importantes<br>- Rio Parana Brasil<br>- Río Paraguay]
+
+    B --> C[Afluentes importantes<br>- Rio Parana Brasil<br>- Río Paraguay]
     C --> G2[Analisis de Alturas hidrométricas Pilcomayo <br> Rio Paraguay]
     C --> G3[Analisis de Caudal en Yacyreta <br> Río Paraná Brasil/Represas]
 
