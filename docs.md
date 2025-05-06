@@ -1,6 +1,6 @@
 ```mermaid
 graph TD
-    A(Inicio Foco 60 días Pronóstico) --> B[Análisis Drivers Aguas Arriba<br>- Influencia en Corrientes<br>- Río Paraguay Alturas/Caudales<br>- Río Paraná Brasil/Represas<br>- Precipitaciones Cuencas Paraguay/Brasil]
+    A(Foco 60 días Pronóstico) --> B[Análisis Aguas Arriba<br>- Influencia en Corrientes<br>- Río Paraguay Alturas/Caudales<br>- Río Paraná Brasil/Represas<br>- Precipitaciones Cuencas Paraguay/Brasil]
 
     F[Input: Pronósticos<br>Precipitaciones 3 meses]
 
