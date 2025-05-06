@@ -1,30 +1,28 @@
 ```mermaid
 graph TD
-    A(Inicio Proyecto Río Paraná) --> B[Recolección Integrada de Datos<br>Alturas Hidrométricas<br>Caudales<br>Factores Climáticos<br>Datos de Represas y Cuencas]
+    A(Inicio Foco 60 días Pronóstico) --> B[Análisis Drivers Aguas Arriba<br>- Influencia en Corrientes<br>- Río Paraguay Alturas/Caudales<br>- Río Paraná Brasil/Represas<br>- Precipitaciones Cuencas Paraguay/Brasil]
 
-    B --> C[Análisis Exploratorio Detallado<br>Identificación Variables Relevantes<br>Correlaciones y Lags<br>Dinámica del Río]
+    F[Input: Pronósticos<br>Precipitaciones 3 meses]
 
-    C --> D[Ingeniería de Características<br>y Preparación Base de Datos<br>Creación Lags Dinámicos, Acumulados]
+    B --> C[Desarrollo Modelos Predictivos<br>para Puntos Clave Aguas Arriba]
 
-    D --> E[Selección y Desarrollo Modelo ML<br>Prophet Meta]
+    C --> G1[Modelo/Predicción Altura<br>Pilcomayo (Río Paraguay)]
+    C --> G2[Modelo/Predicción Altura<br>Yacyreta (Río Paraná)]
+    C --> G3[Modelo/Predicción Altura<br>Corrientes (Horizonte 45 días)]
 
-    %% Bifurcación para los distintos horizontes
-    E --> F_15[Aplicación del Modelo<br>Predicción Directa<br>a 15 días]
-    E --> F_60_1[Estrategia Cascada 60 días:<br>Paso 1: Predicción de Regresoras Clave]
+    F --> G1
+    F --> G2
+    F --> G3
 
-    F_15 --> G_15[Evaluación Resultados<br>Horizonte 15 días]
-    F_60_1 --> F_60_2[Estrategia Cascada 60 días:<br>Paso 2: Predicción Altura Target<br>Usando Regresoras Predichas]
+    subgraph Estrategia de Predicción Final (Cascada)
+        H[Inputs para Modelo Final:<br>Predicciones de Pilcomayo,<br>Yacyreta, Corrientes]
+        G1 --> H
+        G2 --> H
+        G3 --> H
+        H --> I[Modelo/Predicción Altura Puntos Críticos<br>(San Lorenzo, Rosario, Ramallo, San Pedro)<br>para 60 días]
+    end
 
-    F_60_2 --> G_60[Evaluación Resultados<br>Horizonte 60 días]
-
-    G_15 --> H[Predicción Validada<br>Altura Hidrométrica<br>15 días]
-    G_60 --> I[Predicción Validada<br>Altura Hidrométrica<br>60 días]
-
-    %% Convergencia hacia el objetivo final
-    H --> J[Cálculo del Calado Máximo<br>OBJETIVO Principal<br>Usando Altura Predicha<br>Profundidad y Margen Seguridad]
-    I --> J
-
-    J --> K(Fin del Proyecto)
+    I --> J(Objetivo de Pronóstico a 60 días Cumplido<br>para Cálculo de Calado Máximo)
 
     classDef highlight fill:#f9f,stroke:#333,stroke-width:2px;
     class J highlight;
