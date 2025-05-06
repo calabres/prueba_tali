@@ -1,29 +1,28 @@
 ```mermaid
 graph TD
-    A(Inicio Proyecto Río Paraná) --> B[Recolección de Datos<br>Alturas Hidrométricas<br>Caudales<br>Vientos, Temperaturas<br>Precipitaciones]
+    A(Inicio Proyecto Río Paraná) --> B[Recolección Integrada de Datos<br><ul><li>Alturas Hidrométricas</li><li>Caudales</li><li>Factores Climáticos (Viento, Temp, Precipitaciones)</li><li>Datos de Represas, Cuencas</li></ul>]
 
-    subgraph Fase 1: Análisis y Preparación de Datos
-        B --> C1[Análisis Exploratorio Inicial<br>Correlaciones, Lags Fijos, etc.]
-        B --> C2[Segundo Análisis Exploratorio<br>Foco 60 días, Cuencas Altas, Cascada]
-        C1 --> D[Ingeniería de Características<br>y Armado Base de Datos<br>Lags Dinámicos, Acumulados Suavizados]
-        C2 --> D
-    end
+    B --> C[Análisis Exploratorio Detallado<br><ul><li>Identificación de Variables Relevantes</li><li>Análisis de Correlaciones y Lags</li><li>Comprensión de la Dinámica del Río</li></ul>]
 
-    subgraph Fase 2: Modelado y Predicción
-        D --> E[Selección y Desarrollo Modelo ML<br>Prophet Meta]
-        E --> F1[Aplicación Modelo<br>Predicción a 15 días]
-        E --> F2[Aplicación Modelo<br>Estrategia Cascada para 60 días<br>1. Predicción Regresoras]
-        F2 --> F3[Aplicación Modelo<br>Estrategia Cascada<br>2. Predicción Altura Puntos Críticos]
-    end
+    C --> D[Ingeniería de Características<br>y Preparación de la Base de Datos<br>(Creación de Lags Dinámicos, Acumulados, etc.)]
 
-    subgraph Fase 3: Evaluación y Objetivo
-        F1 --> G1[Evaluación Resultados<br>Horizonte 15 días<br>MAE, R2]
-        F3 --> G2[Evaluación Resultados<br>Horizonte 60 días<br>MAE, R2]
-        G1 --> H[Predicción Obtenida<br>Altura Hidrométrica<br>15 días]
-        G2 --> I[Predicción Obtenida<br>Altura Hidrométrica<br>60 días]
-        H --> J[Cálculo Calado Máximo<br>Usando Altura Predicha<br>Prof. Efectiva, Margen Seguridad]
-        I --> J
-    end
+    D --> E[Selección y Desarrollo del Modelo ML<br>(Prophet Meta)]
+
+    %% Bifurcación para los distintos horizontes
+    E --> F_15[Aplicación del Modelo<br>para Predicción Directa<br>a 15 días]
+    E --> F_60_1[Estrategia para 60 días:<br>Paso 1: Predicción de Regresoras Clave<br>(Altura Corrientes, Precipitaciones Cuenca Norte, etc.)]
+
+    F_15 --> G_15[Evaluación y Ajuste<br>Resultados 15 días<br>(MAE, R2)]
+    F_60_1 --> F_60_2[Estrategia para 60 días:<br>Paso 2: Predicción de Altura Puntos Críticos<br>Usando Regresoras Predichas en Paso 1]
+
+    F_60_2 --> G_60[Evaluación y Ajuste<br>Resultados 60 días<br>(MAE, R2)]
+
+    G_15 --> H[Predicción Validada<br>Altura Hidrométrica<br>(Horizonte 15 días)]
+    G_60 --> I[Predicción Validada<br>Altura Hidrométrica<br>(Horizonte 60 días)]
+
+    %% Convergencia hacia el objetivo final
+    H --> J[Cálculo del Calado Máximo<br>(OBJETIVO Principal del Proyecto)<br>Usando Altura Predicha + Profundidad Efectiva + Margen Seguridad]
+    I --> J
 
     J --> K(Fin del Proyecto)
 
