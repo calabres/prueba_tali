@@ -6,9 +6,9 @@ graph TD
 
     B --> C[Desarrollo Modelos Predictivos<br>para Puntos Clave Aguas Arriba]
 
-    C --> G1[Modelo/Predicción Altura<br>Pilcomayo (Río Paraguay)]
-    C --> G2[Modelo/Predicción Altura<br>Yacyreta (Río Paraná)]
-    C --> G3[Modelo/Predicción Altura<br>Corrientes (Horizonte 45 días)]
+    C --> G1[Modelo/Predicción Altura<br>Pilcomayo - Río Paraguay]
+    C --> G2[Modelo/Predicción Altura<br>Yacyreta - Río Paraná]
+    C --> G3[Modelo/Predicción Altura<br>Corrientes - Horizonte 45 días]
 
     F --> G1
     F --> G2
@@ -19,7 +19,7 @@ graph TD
         G1 --> H
         G2 --> H
         G3 --> H
-        H --> I[Modelo/Predicción Altura Puntos Críticos<br>(San Lorenzo, Rosario, Ramallo, San Pedro)<br>para 60 días]
+        H --> I[Modelo/Predicción Altura Puntos Críticos<br>San Lorenzo, Rosario, Ramallo, San Pedro<br>para 60 días]
     end
 
     I --> J(Objetivo de Pronóstico a 60 días Cumplido<br>para Cálculo de Calado Máximo)
